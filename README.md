@@ -1,4 +1,4 @@
-# C++ Knowledge
+# C++ Sandbox
 
 This repository is my personal C++ practice space. I use it to build a stronger foundation in the language by writing small examples, testing syntax, and documenting concepts as I learn them.
 
