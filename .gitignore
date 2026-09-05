@@ -1,3 +1,6 @@
-helloworld
+build/
 *.out
 *.exe
+*.dSYM/
+.DS_Store
+compile_flags.txt
