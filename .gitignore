@@ -10,3 +10,5 @@ a.out
 *.dSYM/
 bitmanipulation/bitcast
 bitmanipulation/bitset
+pointers/pointersnull
+references/lvalueref
