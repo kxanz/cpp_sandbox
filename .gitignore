@@ -3,4 +3,10 @@ build/
 *.exe
 *.dSYM/
 .DS_Store
-compile_flags.txt
+compile_flags.txt*.o
+*.out
+out
+a.out
+*.dSYM/
+bitmanipulation/bitcast
+bitmanipulation/bitset
