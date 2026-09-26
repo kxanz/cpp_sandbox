@@ -8,6 +8,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Find every .cpp file in the project
 file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS "*.cpp")
 
+# Exclude anything CMake writes into the build directory itself (e.g. its own
+# compiler-detection probe files) so `cmake --build build` (no --target) doesn't
+# try to compile them as if they were sandbox sources.
+list(FILTER ALL_SOURCES EXCLUDE REGEX "^${CMAKE_BINARY_DIR}")
+
 foreach(SOURCE_FILE ${ALL_SOURCES})
     # Get path relative to project root
     file(RELATIVE_PATH REL_PATH "${CMAKE_SOURCE_DIR}" "${SOURCE_FILE}")

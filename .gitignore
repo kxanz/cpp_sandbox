@@ -8,7 +8,8 @@ compile_flags.txt*.o
 out
 a.out
 *.dSYM/
-bitmanipulation/bitcast
-bitmanipulation/bitset
-pointers/pointersnull
-references/lvalueref
+fundamentals/bitmanipulation/bitcast
+fundamentals/bitmanipulation/bitset
+fundamentals/pointers/pointersnull
+fundamentals/references/lvalueref
+.claude/
