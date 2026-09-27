@@ -17,10 +17,19 @@ foreach(SOURCE_FILE ${ALL_SOURCES})
     # Get path relative to project root
     file(RELATIVE_PATH REL_PATH "${CMAKE_SOURCE_DIR}" "${SOURCE_FILE}")
 
-    # Turn "Bitmanipulation/bitset.cpp" into "Bitmanipulation_bitset" as the target name
-    string(REPLACE "/" "_" TARGET_NAME "${REL_PATH}")
-    string(REPLACE " " "_" TARGET_NAME "${TARGET_NAME}")
-    string(REPLACE ".cpp" "" TARGET_NAME "${TARGET_NAME}")
+    # Book exercise files (effective_cpp/effective_modern_cpp) already carry a
+    # unique item number in their filename, so use a short "ec13"/"emc25" style
+    # target name instead of the full (long) chapter-folder path.
+    if(REL_PATH MATCHES "^effective_cpp/.*item([0-9]+)")
+        set(TARGET_NAME "ec${CMAKE_MATCH_1}")
+    elseif(REL_PATH MATCHES "^effective_modern_cpp/.*item([0-9]+)")
+        set(TARGET_NAME "emc${CMAKE_MATCH_1}")
+    else()
+        # Turn "Bitmanipulation/bitset.cpp" into "Bitmanipulation_bitset" as the target name
+        string(REPLACE "/" "_" TARGET_NAME "${REL_PATH}")
+        string(REPLACE " " "_" TARGET_NAME "${TARGET_NAME}")
+        string(REPLACE ".cpp" "" TARGET_NAME "${TARGET_NAME}")
+    endif()
 
     add_executable("${TARGET_NAME}" "${SOURCE_FILE}")
 endforeach()
