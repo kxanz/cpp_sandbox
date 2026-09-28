@@ -25,7 +25,7 @@ cpp_sandbox/
 └── cic/                     # Interview-style / coding-challenge practice
 ```
 
-`effective_cpp/` and `effective_modern_cpp/` are split into chapter folders named `NN_topic` (e.g. `03_resource_management`), matching each book's actual chapter order. Inside each chapter folder, one file per item, named `itemNN_short_slug.cpp` (e.g. `item13_raii.cpp`) — the two-digit item number keeps files sorted in book order regardless of alphabetical filename order.
+`effective_cpp/` and `effective_modern_cpp/` are split into chapter folders named `NN_topic` (e.g. `03_resource_management`), matching each book's actual chapter order. Inside each chapter folder, one file per item, named `itemNN.cpp` (e.g. `item13.cpp`) — the two-digit item number keeps files sorted in book order regardless of alphabetical filename order.
 
 ## How To Build Examples
 
@@ -55,3 +55,5 @@ Each folder focuses on one concept or group of related concepts. Files are meant
 ## Notes
 
 This is a learning repository, so the code may include experiments, incomplete examples, compiler errors, and intentional mistakes. The purpose is to practice, observe behavior, and improve over time.
+
+The `effective_cpp/` and `effective_modern_cpp/` exercise files were generated with Claude (Anthropic), based directly on the content of each book's Item, for me to read, predict, solve, and verify myself. I write the actual fixes, test them, and commit/push the results.
