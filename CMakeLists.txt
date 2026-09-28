@@ -5,6 +5,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# This is a learning sandbox, not a release build — always compile with
+# warnings and sanitizers on so bugs like new[]/delete mismatches surface
+# immediately instead of silently "working" by luck.
+add_compile_options(-g -Wall -Wextra -fsanitize=address,undefined)
+add_link_options(-fsanitize=address,undefined)
+
 # Find every .cpp file in the project
 file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS "*.cpp")
 

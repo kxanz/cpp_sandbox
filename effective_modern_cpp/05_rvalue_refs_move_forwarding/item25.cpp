@@ -5,7 +5,7 @@
 // HOW TO USE
 //   1. Read an exercise, PREDICT the copy/move counts it will print.
 //   2. Run the program and compare.
-//   3. Fix the code where it says TODO (each is written the "naive" way on purpose).
+//   3. Fix whatever's wrong (each exercise is written the "naive" way on purpose).
 //   4. Re-run and confirm the counts match the GOAL line.
 
 #include <iostream>
@@ -51,8 +51,8 @@ Person(Tracker n, Tracker e)
 {  }
 
 Person(Person&& rhs)
-    : name(std::move(rhs.name)) //TODO
-    , email(std::move(rhs.email))     // TODO
+    : name(std::move(rhs.name))
+    , email(std::move(rhs.email))
 {  }
 };
 
@@ -72,7 +72,7 @@ Tracker owner;
 template<typename T>
 void setOwner(T&& newOwner) 
 {
-    owner = std::forward<T>(newOwner);      // TODO
+    owner = std::forward<T>(newOwner); 
 }
 };
 
@@ -91,7 +91,7 @@ template<typename T>
 void logAndStore(T&& item) 
 {
     logIt(item);                     // leave this alone
-    history.push_back(std::forward<T>(item));         // TODO (this is the LAST use)
+    history.push_back(std::forward<T>(item));
 }
 
 // ===========================================================================
@@ -102,7 +102,7 @@ void logAndStore(T&& item)
 Tracker appendTo(Tracker&& lhs, const Tracker& rhs) 
 {
     lhs.value += rhs.value;
-    return std::move(lhs);                      // TODO
+    return std::move(lhs);                 
 }
 
 // ===========================================================================
@@ -113,7 +113,7 @@ template<typename T>
 Tracker shout(T&& t) 
 {
     t.value += "!";
-    return std::forward<T>(t);                        // TODO
+    return std::forward<T>(t);                   
 }
 
 // ===========================================================================

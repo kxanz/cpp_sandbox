@@ -5,7 +5,7 @@
 // HOW TO USE
 //   1. Read an exercise, PREDICT what it will print.
 //   2. Run the program and compare.
-//   3. Fix the code where it says TODO (each is written the "naive" way on purpose).
+//   3. Fix whatever's wrong (each exercise is written the "naive" way on purpose).
 //   4. Re-run and confirm the result matches the GOAL line.
 
 #include <iostream>
