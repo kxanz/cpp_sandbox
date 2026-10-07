@@ -27,20 +27,20 @@ class Rational
 public:
     Rational(int numerator = 0, int denominator = 1) : n(numerator), d(denominator) {}
 
-    // A member operator* only lets the LEFT operand undergo the implicit
-    // int-to-Rational conversion; compilers need a non-member search to
-    // consider converting the RIGHT (first) operand too.
-    const Rational operator*(const Rational& rhs) const
-    {
-        return Rational(n * rhs.n, d * rhs.d);
-    }
-
     int numerator() const { return n; }
     int denominator() const { return d; }
 
 private:
     int n, d;
 };
+
+// A non-member operator* lets compilers consider the implicit int-to-Rational
+// conversion on EITHER argument, not just the one that happens to be the
+// left-hand object of a member function call.
+const Rational operator*(const Rational& lhs, const Rational& rhs)
+{
+    return Rational(lhs.numerator() * rhs.numerator(), lhs.denominator() * rhs.denominator());
+}
 
 void exercise1()
 {
@@ -50,8 +50,7 @@ void exercise1()
     Rational result = oneHalf * 2;
     std::cout << "  oneHalf * 2 = " << result.numerator() << "/" << result.denominator() << "\n";
 
-    // Uncomment these two lines and rebuild — read the error before fixing anything:
-    Rational result2 = oneHalf.operator*(2);
+    Rational result2 = 2 * oneHalf;
     std::cout << "  2 * oneHalf = " << result2.numerator() << "/" << result2.denominator() << "\n";
 }
 
